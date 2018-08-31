@@ -1,0 +1,27 @@
+{
+  "name": "giy-api",
+  "version": "1.0.0",
+  "description": "Api for GIY Project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andersonsb/giy-api.git"
+  },
+  "keywords": [
+    "api",
+    "nodejs",
+    "express"
+  ],
+  "author": "Anderson Barcelos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andersonsb/giy-api/issues"
+  },
+  "homepage": "https://github.com/Andersonsb/giy-api#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
