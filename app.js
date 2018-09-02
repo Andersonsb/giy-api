@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const ordersRoutes = require('./api/routes/orders');
+const userRoutes = require('./api/routes/user');
+
 //connect to mongo db
 mongoose.connect('mongodb://giy-api:' + process.env.MONGO_ATLAS_PW + '@giy-api-db-shard-00-00-rxigf.mongodb.net:27017,giy-api-db-shard-00-01-rxigf.mongodb.net:27017,giy-api-db-shard-00-02-rxigf.mongodb.net:27017/test?ssl=true&replicaSet=giy-api-db-shard-0&authSource=admin&retryWrites=true', {
     useNewUrlParser: true
@@ -33,6 +35,7 @@ app.use((req, res, next) => {
 //routes which will handle requests
 app.use('/products', productRoutes);
 app.use('/orders', ordersRoutes);
+app.use('/user', userRoutes);
 
 //custom message
 app.use((req, res, next) => {
