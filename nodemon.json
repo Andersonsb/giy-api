@@ -1,5 +1,6 @@
 {
-    "env": {
-        "MONGO_ATLAS_PW": "giy-api9919"
-    }
+  "env": {
+    "MONGO_ATLAS_PW": "giy-api9919",
+    "JWT_KEY": "secretkey"
+  }
 }
