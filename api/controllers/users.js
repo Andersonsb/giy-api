@@ -9,7 +9,7 @@ exports.user_create_user = (req, res, next) => {
     .then(user => {
       if (user.length >= 1) {
         return res.status(409).json({
-          message: "User email already exixts"
+          message: "User email already exists"
         });
       } else {
         bcrypt.hash(req.body.password, 10, (err, hash) => {
@@ -20,8 +20,14 @@ exports.user_create_user = (req, res, next) => {
           } else {
             const user = new User({
               _id: new mongoose.Types.ObjectId(),
+              active: true,
+              first_name: req.body.first_name,
+              last_name: req.body.last_name,
+              phone: req.body.phone,
               email: req.body.email,
-              password: hash
+              namespace: req.body.namespace,
+              password: hash,
+              created: Date.now()
             });
             user
               .save()

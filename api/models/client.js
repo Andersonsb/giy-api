@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
+const clientSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-
   first_name: {
     type: String,
     required: true
@@ -11,6 +10,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  Address: { type: String },
   phone: {
     type: String
   },
@@ -29,7 +29,7 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true },
   created: { type: Date },
   modified: { type: Date },
-  type: { type: String, required: true, default: "user" }
+  end_date: { type: Date, default: null }
 });
 
-module.exports = mongoose.model("User", userSchema, "users");
+module.exports = mongoose.model("Client", clientSchema, "clients");
