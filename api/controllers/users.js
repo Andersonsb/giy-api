@@ -94,6 +94,11 @@ exports.user_login = (req, res, next) => {
     });
 };
 
+// function resp (code, message) {
+//   return {code: code, message: message}
+
+// }
+
 exports.user_delete_user = (req, res, next) => {
   User.findById(req.params.userId)
     .exec()
