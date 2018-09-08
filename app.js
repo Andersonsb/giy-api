@@ -8,6 +8,7 @@ const productRoutes = require("./api/routes/products");
 const ordersRoutes = require("./api/routes/orders");
 const userRoutes = require("./api/routes/users");
 const clientRoutes = require("./api/routes/clients");
+const unitRoutes = require("./api/routes/units");
 
 //connect to mongo db
 mongoose.connect(
@@ -43,6 +44,7 @@ app.use("/products", productRoutes);
 app.use("/orders", ordersRoutes);
 app.use("/users", userRoutes);
 app.use("/clients", clientRoutes);
+app.use("/units", unitRoutes);
 
 //custom message
 app.use((req, res, next) => {
