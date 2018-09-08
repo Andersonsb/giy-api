@@ -13,6 +13,11 @@ router.post(
 
 router.get("/", ClientsController.clients_get_all);
 
-router.delete("/:clientId", checkAuth, ClientsController.clients_delete_client);
+router.delete(
+  "/:clientId",
+  checkAuth,
+  isSuperAdmin,
+  ClientsController.clients_delete_client
+);
 
 module.exports = router;
