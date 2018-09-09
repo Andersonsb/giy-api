@@ -15,14 +15,18 @@ const unitSchema = mongoose.Schema({
     type_id: { type: String, default: "001" }
   },
   recipe: {
+    recipe_id: mongoose.Schema.Types.ObjectId,
     active: { type: Boolean, default: false },
-    name: { type: String, default: null },
-    species: { type: String, default: null },
-    region: { type: String, default: null },
-    light_start: { type: Number, default: null },
-    light_end: { type: Number, default: null },
-    air_temp: { type: Number, default: null },
-    soil_humidity: { type: Number, default: null }
+
+    name: { type: String },
+    description: { type: String },
+    created_by_namespace: { type: String },
+    species: { type: String },
+    region: { type: String },
+    light_start: { type: Number },
+    light_end: { type: Number },
+    air_temp: { type: Number },
+    soil_humidity: { type: Number }
   },
 
   namespace: {
