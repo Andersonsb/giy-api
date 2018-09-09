@@ -4,11 +4,10 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const productRoutes = require("./api/routes/products");
-const ordersRoutes = require("./api/routes/orders");
 const userRoutes = require("./api/routes/users");
 const clientRoutes = require("./api/routes/clients");
 const unitRoutes = require("./api/routes/units");
+const recipeRoutes = require("./api/routes/recipes");
 
 //connect to mongo db
 mongoose.connect(
@@ -40,11 +39,10 @@ app.use((req, res, next) => {
 });
 
 //routes which will handle requests
-app.use("/products", productRoutes);
-app.use("/orders", ordersRoutes);
 app.use("/users", userRoutes);
 app.use("/clients", clientRoutes);
 app.use("/units", unitRoutes);
+app.use("/recipes", recipeRoutes);
 
 //custom message
 app.use((req, res, next) => {

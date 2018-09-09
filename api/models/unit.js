@@ -15,8 +15,12 @@ const unitSchema = mongoose.Schema({
     type_id: { type: String, default: "001" }
   },
   recipe: {
+    recipe_id: mongoose.Schema.Types.ObjectId,
     active: { type: Boolean, default: false },
+
     name: { type: String },
+    description: { type: String },
+    created_by_namespace: { type: String },
     species: { type: String },
     region: { type: String },
     light_start: { type: Number },

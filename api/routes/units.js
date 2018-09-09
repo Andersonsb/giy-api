@@ -8,6 +8,8 @@ router.post("/create", UnitController.unit_create_unit);
 
 router.get("/my_units", checkAuth, UnitController.units_get_all_mine);
 
+router.post("/set_recipe", checkAuth, UnitController.unit_set_recipe);
+
 // router.delete(
 //   "/:unitId",
 //   checkAuth,
