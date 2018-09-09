@@ -5,6 +5,9 @@ const jwt = require("jsonwebtoken");
 
 exports.user_create_user = async (req, res, next) => {
   try {
+    const token = req.headers.authorization.split(" ")[1];
+    const decoded = jwt.decode(token, process.env.JWT_KEY);
+
     user = await User.find({ email: req.body.email });
     if (user.length >= 1) {
       return res.status(409).json({
@@ -25,7 +28,7 @@ exports.user_create_user = async (req, res, next) => {
         last_name: req.body.last_name,
         phone: req.body.phone,
         email: req.body.email,
-        namespace: req.body.namespace,
+        namespace: decoded.namespace,
         password: hash,
         created: Date.now()
       });
@@ -97,12 +100,11 @@ exports.user_delete_user = async (req, res, next) => {
       return res.status(404).json({
         message: "User not found with specified ID"
       });
-    } else {
-      await User.deleteOne({ _id: req.params.userId });
-      res.status(200).json({
-        message: "User deleted"
-      });
     }
+    await User.deleteOne({ _id: req.params.userId });
+    res.status(200).json({
+      message: "User deleted"
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json({

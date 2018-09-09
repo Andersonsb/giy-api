@@ -4,7 +4,12 @@ const UnitController = require("../controllers/units");
 const checkAuth = require("../middleware/check-auth");
 const isSuperAdmin = require("../middleware/is-super-admin");
 
-router.post("/create", UnitController.unit_create_unit);
+router.post(
+  "/create",
+  checkAuth,
+  isSuperAdmin,
+  UnitController.unit_create_unit
+);
 
 router.get("/my_units", checkAuth, UnitController.units_get_all_mine);
 
