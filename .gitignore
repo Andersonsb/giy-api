@@ -76,5 +76,6 @@ typings/
 # Serverless directories
 .serverless
 
-
+.DS_Store
+.vscode
 # End of https://www.gitignore.io/api/node
