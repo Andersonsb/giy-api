@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const mongoose = require("mongoose");
 
-// checks if tokens belongs to SUPERADMIN type user
+// checks if tokens belongs to SUPERADMIN type
 module.exports = (req, res, next) => {
   const token = req.headers.authorization.split(" ")[1];
   //console.log(token);
