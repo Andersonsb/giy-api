@@ -2,6 +2,7 @@ const Recipe = require("../models/recipe");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const handlers = require("../handlers/handlers");
 
 exports.recipe_create_recipe = async (req, res, next) => {
   try {
@@ -60,6 +61,7 @@ exports.recipe_get_all_recipes = async (req, res, next) => {
         };
       })
     };
+
     res.status(200).json({ response });
   } catch (err) {
     console.log(err);

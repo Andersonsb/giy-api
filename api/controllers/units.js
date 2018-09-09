@@ -87,6 +87,8 @@ exports.unit_set_recipe = async (req, res, next) => {
         message: "This Recipe does not exist"
       });
     }
+    console.log(unit.namespace);
+    console.log(decoded.namespace);
 
     if (unit.namespace !== decoded.namespace) {
       return res.status(401).json({
@@ -99,6 +101,7 @@ exports.unit_set_recipe = async (req, res, next) => {
       {
         $set: {
           recipe: {
+            active: true,
             recipe_id: recipe._id,
             name: recipe.name,
             description: recipe.description,
